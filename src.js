@@ -2,7 +2,7 @@ function loadDoc(url) {
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes="+"age,gender", true);
   xhttp.setRequestHeader("Content-Type","application/json");
-  console.log(config.key);
+
   xhttp.setRequestHeader("Ocp-Apim-Subscription-Key","3451255c43764662bb3fcacef2e66e14");
 
   xhttp.onreadystatechange = function() {
