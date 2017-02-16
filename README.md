@@ -1,4 +1,4 @@
-                                                                # Book Face
+# Book Face
 ## Place your Picture and Get Your Book
 ***
 ## Website Idea
@@ -15,13 +15,13 @@ Well, the main purpose of this website is to encourage you to read Books by anal
 ***
 ***
 ## To Access the Code
-Run
+    Run
 
-To run the code you need to create a config.js file. Inside the file create a variable config.
+    To run the code you need to create a config.js file. Inside the file create a variable config.
 
-var config = {
-  key: "key"
-};
+    var config = {
+    key: "key"
+    };
 
 ## You can get your own key using this link:
 https://www.microsoft.com/cognitive-services/en-us/subscriptions?productId=/products/5639d8afca73072154c1ce88
