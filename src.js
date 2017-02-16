@@ -1,9 +1,10 @@
- function loadDoc(url) {
+  function loadDoc(url) {
   
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes="+"age,gender", true);
   xhttp.setRequestHeader("Content-Type","application/json");
-  xhttp.setRequestHeader("Ocp-Apim-Subscription-Key","3451255c43764662bb3fcacef2e66e14");
+  console.log(config.key);
+  xhttp.setRequestHeader("Ocp-Apim-Subscription-Key",config.key);
 
 
   xhttp.onreadystatechange = function() {
@@ -40,7 +41,7 @@
        		else if (gen == "female" && age <=15 ) {BookTitle1 = "fantasy"; BookTitle2="Art";} 
        			else if (gen == "female" && age > 15 && age <=20) {BookTitle1 = "Romance"; BookTitle2="Drama";} 
        			else if (gen == "female" && age > 20 && age <=30) {BookTitle1 = "Cookbooks"; BookTitle2="Romance";}
-       				else if (gen == "female" && age > 30 && age <= 50) {BookTitle1= "Health"; BookTitle2="Poetry";} 
+       				else if (gen == "female" && age > 30 && age <= 50) {BookTitle1= "Poetry"; BookTitle2="";} 
        return [BookTitle1 ,BookTitle2];
   }
 
@@ -62,6 +63,9 @@ results = JSON.parse(results);
 var ar = results.items;
 var booksNum ;
  var BookInformation ;
+ console.log(booksNum) ;
+ //if(booksNum === undefined || booksNum === null){createTable_Header();}else{DeleteTable(bookNum);createTable_Header();}
+ createTable_Header();
 for ( booksNum = 0; booksNum < ar.length ; booksNum++) {
 	 var BookAuther = "";
      BookInformation = ar[booksNum].volumeInfo;
@@ -76,45 +80,58 @@ for ( booksNum = 0; booksNum < ar.length ; booksNum++) {
        
 	     }
      }
-var table = document.getElementById("myTable1");
-var row = table.insertRow(booksNum);
+
+
 
 var Booktit = BookInformation.subtitle +", "+BookInformation.title;
 Booktit = Booktit.replace("undefined" , "");
-var cell1 = row.insertCell(0);
-cell1.innerHTML = Booktit;
-
 var BooktImage = BookInformation.imageLinks.thumbnail;
-var cell2 = row.insertCell(1);
-cell2.innerHTML = "<a href="+BooktImage +" target ='_blank'>Book Image</a>";
-var cell3 = row.insertCell(2);
-cell3.innerHTML = BookAuther;
 var BooktPreview = BookInformation.previewLink;
-var cell4 = row.insertCell(3);
-cell4.innerHTML = "<a href="+BooktPreview +" target ='_blank'>Book preview</a>";
-
-console.log(BookAuther);
-
-//console.log(Booktit);
-//console.log(BooktImage);
-//console.log(BooktPreview);
-
+createTableBody(Booktit,BooktImage,BookAuther,BooktPreview,booksNum);
 }
-
-
-
-console.log(BookAuther);
-//console.log(Booktit);
-//console.log(BooktImage);
-//console.log(BooktPreview);
-//console.log(results.items);
-//console.log(BookInformation);
-
-// for(var i in results.genres){
-// }
 }
 };
 myRequest.open("GET", "https://www.googleapis.com/books/v1/volumes?q="+param+"&maxResults="+maxResults, true);
 myRequest.send();
 }
+
+  function createTable_Header(){
+    var table = document.getElementById("myTable");
+    var header = table.createTHead();
+    var row = header.insertRow(0);
+    row.style.backgroundColor = "#1C313D";
+    row.style.font = "italic bold 15px arial";
+    var cell = row.insertCell(0);
+    var cel2 = row.insertCell(1);
+    var cel3 = row.insertCell(2);
+    var cel4 = row.insertCell(3);
+    cell.innerHTML = "<b>title</b>";
+    cel2.innerHTML = "<b>picture</b>";
+    cel3.innerHTML = "<b>auther</b>";
+    cel4.innerHTML = "<b>book-url</b>";
+
+ }
+ function createTableBody(Booktit,BooktImage,BookAuther,BooktPreview,bookNum){
+  var table = document.getElementById("myTable");
+ // document.getElementById("myDIV").appendChild(document.getElementById('myTable'));
+  var row = table.insertRow(bookNum +1);
+  var cell1 = row.insertCell(0);
+  cell1.innerHTML = Booktit;  
+  var cell2 = row.insertCell(1);
+  cell2.innerHTML = "<a href="+BooktImage +" target ='_blank'>Book Image</a>";
+  var cell3 = row.insertCell(2);
+  cell3.innerHTML = BookAuther;
+  var cell4 = row.insertCell(3);
+  cell4.innerHTML = "<a href="+BooktPreview +" target ='_blank'>Book preview</a>";
+ }
+
+  function DeleteTable(bookNum){
+  var table = document.getElementById("myTable");
+  for (var i = 0; i <= bookNum; i++) {
+    table.deleteRow(bookNum);
+  }
+  
+
+ }
+
 
