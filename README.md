@@ -32,9 +32,9 @@ Well, the main purpose of this website is to encourage you to read Books by anal
 ![Alt Text](https://github.com/golden-fingers/booksfaces/blob/master/wb2.png)
 ## Feature
 1- You can get your recomended books easily.<br>
-2- You can browse multiple choices of several books and different authors.
-3- We provide you a look to the book cover.
-4- Also you can view the book by clicking on a button provided in the table.
+2- You can browse multiple choices of several books and different authors.<br>
+3- We provide you a look to the book cover.<br>
+4- Also you can view the book by clicking on a button provided in the table.<br>
 
 # You Can Reach Us @
 https://golden-fingers.github.io/booksfaces/
