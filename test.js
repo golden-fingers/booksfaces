@@ -1,10 +1,11 @@
-QUnit.test('first request -> should return right data', function(t) {
-
+QUnit.test('loadDoc -> should return right data', function(t) {
   var done = t.async(1);
-
-    t.equal(loadDoc("https://www.walldevil.com/wallpapers/a13/girl-unknown-background-web-pixels.jpg"),'ok','got ok response');
+  var url = "https://www.walldevil.com/wallpapers/a13/girl-unknown-background-web-pixels.jpg";
+  loadDoc(url, function(err,data){
+    t.equal(data[0],'Romance','first book is correct');
+    t.equal(data[1],'Drama','second book is correct');
     done();
-
+  });
 });
 
 
