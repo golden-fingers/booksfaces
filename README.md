@@ -24,6 +24,10 @@ Well, the main purpose of this website is to encourage you to read Books by anal
     };
  
 ## Screenshot
+### Here are some Screenshots of the website, the first SS is the Landing Page showing the slider which contains some images, the second one shows the table of recommended books after clicking at the picture in the SS.
 ![Alt Text](https://github.com/golden-fingers/booksfaces/blob/master/wb1.png)
+***
+![Alt Text](https://github.com/golden-fingers/booksfaces/blob/master/wb2.png)
+
 ## You can get your own key using this link:
 https://www.microsoft.com/cognitive-services/en-us/subscriptions?productId=/products/5639d8afca73072154c1ce88
