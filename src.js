@@ -1,4 +1,4 @@
-function loadDoc(url) {
+function loadDoc(url,returnAfter) {
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", "https://westus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceAttributes="+"age,gender", true);
   xhttp.setRequestHeader("Content-Type","application/json");
@@ -13,6 +13,7 @@ function loadDoc(url) {
      var Age = js[0].faceAttributes.age;
      var bookTitle = SearchValue(Gender,Age);
      GoogleBooks(bookTitle);
+     returnAfter(undefined,bookTitle);
     }
   };
   data = '{"url": "' + url +'"}'
