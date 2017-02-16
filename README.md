@@ -22,6 +22,8 @@ Well, the main purpose of this website is to encourage you to read Books by anal
     var config = {
     key: "key"
     };
-
+ 
+## Screenshot
+![Alt Text](https://github.com/golden-fingers/booksfaces/blob/master/wb1.png)
 ## You can get your own key using this link:
 https://www.microsoft.com/cognitive-services/en-us/subscriptions?productId=/products/5639d8afca73072154c1ce88
